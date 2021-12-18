@@ -6,7 +6,7 @@
 /*   By: bclarind <bclarind@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:47:03 by bclarind          #+#    #+#             */
-/*   Updated: 2021/12/17 22:28:15 by bclarind         ###   ########.fr       */
+/*   Updated: 2021/12/18 16:03:35 by bclarind         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,34 +40,30 @@ int	get_with_or_height(char *map_path, int flag)
 	{
 		while (read(fd, &c, 1))
 		{
-			// if (c == '\n')
-			// {
-			// 	if (i > max)
-			// 		max = i;
-			// }
-			// else
-			// 	i += 50;
 			if (c == '\n')
 				return (i);
 			i += 50;
 		}
-		// return (max);
 	}
 	return (i);
 }
 
 int	main(int argc, char **argv)
 {
-	void	*mlx;
-	void	*mlx_win;
+	void	*mlx_ptr;
+	void	*win_ptr;
 
 	(void) argv;
 	if (argc != 2)
 		return (1);
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, get_with_or_height(argv[1], 0), get_with_or_height(argv[1], 1), "Hello world!"); //    
-	if (mlx_win == NULL)
-		free(mlx_win);
-	map_draw(argv[1], mlx, mlx_win);
-	mlx_loop(mlx);
+	mlx_ptr = mlx_init();
+	win_ptr = mlx_new_window(mlx_ptr, get_with_or_height(argv[1], 0), get_with_or_height(argv[1], 1), "My game");
+	if (win_ptr == NULL)
+		free(win_ptr);
+	if (map_draw(argv[1], mlx_ptr, win_ptr))
+	{
+		printf("Error\n");
+		return (1);
+	}
+	mlx_loop(mlx_ptr);
 }
