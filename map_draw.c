@@ -6,7 +6,7 @@
 /*   By: bclarind <bclarind@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 19:08:38 by bclarind          #+#    #+#             */
-/*   Updated: 2021/12/18 16:07:39 by bclarind         ###   ########.fr       */
+/*   Updated: 2021/12/18 21:43:13 by bclarind         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,54 +126,58 @@ int	is_map_not_valid(char *map_path)
 	return (0);
 }
 
-int	keypress_handle(int keycode, void *mlx, void *mlx_win, t_data data)
+t_data	*get_coordinates_pers(void)
 {
-	// if (keysym == XK_Escape)
-	// 	mlx_destroy_window(mlx, mlx_win);
+	t_data *data;
 
-	// printf("Keypress: %d\n", keysym);
+	data = malloc(sizeof(t_data));
+	data->x = 200;
+	data->y = 50;
+	return (data);
+}
 
-	// 13-w 0-a 2-d 1-s 53-esc
-	(void) mlx;
-	(void) mlx_win;
-	if (keycode == 13)
-	{
-		printf("%d\n", data.x);
-	}
+int	keypress_handle(int keycode, t_data *data)
+{
+	t_data *data_coords;
+
+	(void) keycode;
+	data_coords = get_coordinates_pers();
+	mlx_destroy_image()
+	subject_draw("./images/starting_position.xpm", data->mlx_ptr, data->win_ptr, data_coords->x, data_coords->y);
+	// printf("keycode=%3d, x=%d, y=%d\n", keycode, data->x, data->y);
 	return (0);
 }
 
-int	map_draw(char *map_path, void *mlx_ptr, void *win_ptr)
+int	map_draw(char *map_path, t_data *data)
 {
 	char 	c;
 	int		fd;
-	t_data	data;
 
 	if (is_map_not_valid(map_path))
 		return (1);
-	data.x = 0;
-	data.y = 0;
+	data->x = 0;
+	data->y = 0;
+	mlx_key_hook(data->win_ptr, keypress_handle, data);
 	fd = open(map_path, O_RDONLY);
 	while (read(fd, &c, 1))
 	{
 		if (c == '\n')
 		{
-			data.y += 50;
-			data.x = 0;
+			data->y += 50;
+			data->x = 0;
 			continue ;
 		}
 		else if (c == '0')
-			subject_draw("./images/empty_space.xpm", mlx_ptr, win_ptr, data.x, data.y);
+			subject_draw("./images/empty_space.xpm", data->mlx_ptr, data->win_ptr, data->x, data->y);
 		else if (c == '1')
-			subject_draw("./images/wall.xpm", mlx_ptr, win_ptr, data.x, data.y);
+			subject_draw("./images/wall.xpm", data->mlx_ptr, data->win_ptr, data->x, data->y);
 		else if (c == 'C')
-			subject_draw("./images/collectible.xpm", mlx_ptr, win_ptr, data.x, data.y);
+			subject_draw("./images/collectible.xpm", data->mlx_ptr, data->win_ptr, data->x, data->y);
 		else if (c == 'E')
-			subject_draw("./images/exit.xpm", mlx_ptr, win_ptr, data.x, data.y);
+			subject_draw("./images/exit.xpm", data->mlx_ptr, data->win_ptr, data->x, data->y);
 		else if (c == 'P')
-			subject_draw("./images/starting_position.xpm", mlx_ptr, win_ptr, data.x, data.y);
-		data.x += 50;
+			subject_draw("./images/starting_position.xpm", data->mlx_ptr, data->win_ptr, data->x, data->y);
+		data->x += 50;
 	}
-	mlx_key_hook(win_ptr, &keypress_handle, &data);
 	return (0);
 }

@@ -5,7 +5,7 @@ SRCS = so_long.c map_draw.c get_next_line_utils.c get_next_line.c
 OBJ = $(SRCS:.c=.o)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -Imlx -c $< -o $@
+	@$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
 all:	$(NAME)
 

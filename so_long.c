@@ -6,7 +6,7 @@
 /*   By: bclarind <bclarind@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:47:03 by bclarind          #+#    #+#             */
-/*   Updated: 2021/12/18 16:03:35 by bclarind         ###   ########.fr       */
+/*   Updated: 2021/12/18 21:39:03 by bclarind         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,18 @@ int	get_with_or_height(char *map_path, int flag)
 
 int	main(int argc, char **argv)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
+	t_data	data;
 
-	(void) argv;
 	if (argc != 2)
 		return (1);
-	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, get_with_or_height(argv[1], 0), get_with_or_height(argv[1], 1), "My game");
-	if (win_ptr == NULL)
-		free(win_ptr);
-	if (map_draw(argv[1], mlx_ptr, win_ptr))
+	data.mlx_ptr = mlx_init();
+	data.win_ptr = mlx_new_window(data.mlx_ptr, get_with_or_height(argv[1], 0), get_with_or_height(argv[1], 1), "My game");
+	if (data.win_ptr == NULL)
+		free(data.win_ptr);
+	if (map_draw(argv[1], &data))
 	{
 		printf("Error\n");
 		return (1);
 	}
-	mlx_loop(mlx_ptr);
+	mlx_loop(data.mlx_ptr);
 }
