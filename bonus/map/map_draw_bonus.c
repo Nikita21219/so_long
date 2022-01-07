@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_draw.c                                         :+:      :+:    :+:   */
+/*   map_draw_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bclarind <bclarind@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 19:08:38 by bclarind          #+#    #+#             */
-/*   Updated: 2022/01/07 14:42:35 by bclarind         ###   ########.fr       */
+/*   Updated: 2022/01/07 16:13:44 by bclarind         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../so_long.h"
+#include "../../so_long_bonus.h"
 
 void	subject_draw(char *path, t_data *data)
 {
@@ -47,7 +47,7 @@ int	get_rows(char *map_path)
 	return (count);
 }
 
-int	map_draw(t_data *data)
+void	map_draw(t_data *data)
 {
 	int	i;
 	int	j;
@@ -73,5 +73,4 @@ int	map_draw(t_data *data)
 		data->y += 50;
 	}
 	mlx_string_put(data->mlx, data->win, 0, 0, 555, "0");
-	return (0);
 }

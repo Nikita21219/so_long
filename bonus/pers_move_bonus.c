@@ -6,11 +6,11 @@
 /*   By: bclarind <bclarind@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 21:39:59 by bclarind          #+#    #+#             */
-/*   Updated: 2022/01/07 15:59:31 by bclarind         ###   ########.fr       */
+/*   Updated: 2022/01/07 16:14:01 by bclarind         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
 void	hero_draw(t_data *data)
 {

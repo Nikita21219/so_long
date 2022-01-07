@@ -6,11 +6,11 @@
 /*   By: bclarind <bclarind@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 12:10:59 by bclarind          #+#    #+#             */
-/*   Updated: 2022/01/07 15:06:28 by bclarind         ###   ########.fr       */
+/*   Updated: 2022/01/07 16:13:32 by bclarind         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../so_long.h"
+#include "../../so_long_bonus.h"
 
 void	check_collisions(t_data *data)
 {

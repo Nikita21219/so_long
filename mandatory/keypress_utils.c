@@ -6,7 +6,7 @@
 /*   By: bclarind <bclarind@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 13:25:01 by bclarind          #+#    #+#             */
-/*   Updated: 2022/01/07 14:41:41 by bclarind         ###   ########.fr       */
+/*   Updated: 2022/01/07 16:10:35 by bclarind         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,13 @@ int	is_not_left_collectible(t_data *data)
 		}
 		i++;
 	}
+	return (0);
+}
+
+int	exit_from_game(t_data *data)
+{
+	mlx_destroy_window(data->mlx, data->win);
+	free_map(data->map);
+	exit(0);
 	return (0);
 }

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animate.c                                          :+:      :+:    :+:   */
+/*   animate_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bclarind <bclarind@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 18:20:20 by bclarind          #+#    #+#             */
-/*   Updated: 2022/01/07 14:42:18 by bclarind         ###   ########.fr       */
+/*   Updated: 2022/01/07 16:13:08 by bclarind         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../so_long.h"
+#include "../../so_long_bonus.h"
 
 void	collectible_draw(t_data *data, char *path, int x, int y)
 {

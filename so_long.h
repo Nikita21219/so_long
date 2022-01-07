@@ -6,7 +6,7 @@
 /*   By: bclarind <bclarind@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 14:29:54 by bclarind          #+#    #+#             */
-/*   Updated: 2022/01/07 15:49:12 by bclarind         ###   ########.fr       */
+/*   Updated: 2022/01/07 16:15:18 by bclarind         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_data {
 	char	**map;
 }	t_data;
 
-int		map_draw(t_data *data);
+void	map_draw(t_data *data);
 char	*get_next_line(int fd);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -40,8 +40,6 @@ int		get_map_rows(char **map);
 int		exit_from_game(t_data *data);
 int		is_map_not_valid(char *map_path);
 void	check_collisions(t_data *data);
-void	enemy_gen(t_data *data);
-int		animate(t_data *data);
 int		is_not_allow(int x, int y, t_data *data);
 void	*free_mem(char **mem, int fd, char *str);
 void	free_map(char **map);

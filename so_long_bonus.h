@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bclarind <bclarind@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/17 14:29:54 by bclarind          #+#    #+#             */
-/*   Updated: 2022/01/07 13:42:29 by bclarind         ###   ########.fr       */
+/*   Created: 2022/01/07 16:17:13 by bclarind          #+#    #+#             */
+/*   Updated: 2022/01/07 16:17:16 by bclarind         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include "mlx/mlx.h"
 # include <stdio.h>
@@ -33,7 +33,7 @@ typedef struct s_enemy {
 	int		y;
 }	t_enemy;
 
-int		map_draw(t_data *data);
+void	map_draw(t_data *data);
 char	*get_next_line(int fd);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char const *s1, char const *s2);
