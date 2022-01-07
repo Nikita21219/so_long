@@ -2,7 +2,7 @@ NAME =			so_long
 HEADER =		so_long.h
 HEADER_BONUS =	so_long_bonus.h
 CC =			cc
-CFLAGS =		-Wall -Wextra -Werror -Lmlx -lmlx -framework OpenGL -framework AppKit
+CFLAGS =		-Wall -Wextra -Werror
 SRCS =			mandatory/so_long.c mandatory/map/map_draw.c get_next_line/get_next_line_utils.c \
         		get_next_line/get_next_line.c mandatory/map/valid_map.c \
         		mandatory/free_utils.c mandatory/get_map.c mandatory/keypress_utils.c mandatory/pers_move.c \
@@ -23,7 +23,7 @@ OBJ_BONUS =		$(SRCS_BONUS:.c=.o)
 all:	$(NAME)
 
 $(NAME):	$(HEADER) $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 clean:
 	rm -f $(OBJ) $(OBJ_BONUS)
@@ -32,7 +32,7 @@ fclean: clean
 	rm -f $(NAME)
 
 bonus : $(OBJ_BONUS) $(HEADER_BONUS)
-	$(CC) $(CFLAGS) $(OBJ_BONUS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ_BONUS) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 re: fclean all
 .PHONY: all clean fclean re
