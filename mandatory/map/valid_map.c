@@ -6,7 +6,7 @@
 /*   By: bclarind <bclarind@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 21:13:18 by bclarind          #+#    #+#             */
-/*   Updated: 2022/01/07 14:41:30 by bclarind         ###   ########.fr       */
+/*   Updated: 2022/01/07 17:05:05 by bclarind         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	is_missing_item(char *map_path)
 		else if (c == 'P')
 			count_start_pos++;
 	}
-	if (count_collectible < 1 || count_exit < 1 || count_start_pos < 1)
+	if (count_collectible < 1 || count_exit < 1 || count_start_pos != 1)
 		return (1);
 	return (0);
 }
